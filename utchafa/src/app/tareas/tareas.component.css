@@ -1,0 +1,56 @@
+.main-content {
+  margin-left: 350px; 
+  padding: 20px;
+}
+
+.back{
+  background-color: #363333;
+}
+.titulo-bonito {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+  position: relative;
+  display: inline-block;
+  margin: 1rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.titulo-texto {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(90deg, #eec5c5, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: tituloEntrada 0.8s ease-out;
+}
+
+
+
+
+
+/* Efecto hover */
+.titulo-bonito:hover .titulo-texto {
+  animation: tituloPulso 1.5s infinite;
+}
+
+.titulo-bonito:hover .titulo-subrayado {
+  width: 120px;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #f39c12, #e74c3c);
+}
+
+@keyframes tituloPulso {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .titulo-bonito {
+    font-size: 2.2rem;
+  }
+}

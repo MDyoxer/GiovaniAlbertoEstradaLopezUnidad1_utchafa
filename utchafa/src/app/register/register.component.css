@@ -1,0 +1,103 @@
+/* Estilos generales */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Tarjeta de registro */
+.register-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.register-card h2 {
+  color: #2e7d32; /* Verde oscuro */
+  margin: 1rem 0 1.5rem 0;
+}
+
+.register-image {
+  margin-bottom: 1rem;
+}
+
+.image-preview {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+/* Formulario */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.input-group label {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #2e7d32;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Botón */
+.register-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #388e3c;
+}
+
+/* Enlace a login */
+.login-link {
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+.login-link a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.login-link a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}

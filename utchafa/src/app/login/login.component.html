@@ -1,0 +1,53 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="register-image">
+      <img src="assets/img/utc_chafa.png" alt="Registro" class="image-preview">
+    </div>
+    <h2>Iniciar Sesión</h2>
+    
+    <form class="login-form" (ngSubmit)="onSubmit()" *ngIf="!loading; else loadingSpinner">
+      <div class="input-group">
+        <label for="email">Correo</label>
+        <input 
+          type="email" 
+          id="email" 
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Ingresa tu correo"
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="contra">Contraseña</label>
+        <input 
+          type="password" 
+          id="contra" 
+          [(ngModel)]="contra"
+          name="contra"
+          placeholder="Ingresa tu contraseña"
+          required
+        >
+      </div>
+
+      <button 
+        type="submit" 
+        class="login-button" 
+        [disabled]="!email || !contra || loading"
+      >
+        {{ loading ? 'Procesando...' : 'Iniciar Sesión' }}
+      </button>
+    </form>
+
+    <ng-template #loadingSpinner>
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Verificando tus credenciales...</p>
+      </div>
+    </ng-template>
+    
+    <div class="register-link">
+      <p>¿No tienes cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+    </div>
+  </div>
+</div>

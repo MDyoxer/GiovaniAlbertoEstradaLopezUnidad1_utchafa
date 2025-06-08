@@ -1,0 +1,159 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+}
+
+
+.login-container {
+  /* Tus estilos existentes */
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #fde8e8;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  border-left: 4px solid #d32f2f;
+}
+
+.error-icon {
+  margin-right: 8px;
+}
+
+.error-input {
+  border-color: #d32f2f !important;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 30px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.login-button:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed;
+}
+.login-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.register-image {
+  margin-bottom: 1rem;
+}
+
+.image-preview {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+
+.login-card h2 {
+  color: #2e7d32; /* Verde oscuro */
+  margin-bottom: 1.5rem;
+   font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+
+}
+
+/* Formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.input-group label {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #2e7d32;
+  outline: none;
+}
+
+/* Botón */
+.login-button {
+  background-color: #4caf50; /* Verde */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #388e3c; /* Verde oscuro */
+}
+
+/* Enlace de registro */
+.register-link {
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+.register-link a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+   font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+
+}
+
+.register-link a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}

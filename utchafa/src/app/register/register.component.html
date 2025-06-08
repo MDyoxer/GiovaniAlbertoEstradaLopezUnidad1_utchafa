@@ -1,0 +1,64 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="register-image">
+      <img src="assets/img/utc_chafa.png" alt="Registro" class="image-preview">
+    </div>
+
+    <h2>Regístrate</h2>
+    
+    <form class="register-form" (ngSubmit)="onRegister()" #registerForm="ngForm">
+  
+      <div class="input-group">
+        <label for="nombre">Nombre</label>
+        <input 
+          type="text" 
+          id="nombre" 
+          name="nombre"
+          [(ngModel)]="nombre"
+          placeholder="Ingresa tu nombre"
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="email">Correo Electrónico</label>
+        <input 
+          type="email" 
+          id="email" 
+           name="email"
+          [(ngModel)]="email"
+          placeholder="Ej: usuario@dominio.com"
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="password">Contraseña</label>
+        <input 
+          type="password" 
+          id="contra" 
+           name="contra"
+          [(ngModel)]="contra"
+          placeholder="Mínimo 8 caracteres"
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="confirm-password">Confirmar Contraseña</label>
+        <input 
+          type="password" 
+          id="confirm-password" 
+           name="contra2"
+          [(ngModel)]="contra2"
+          placeholder="Repite tu contraseña"
+        >
+      </div>
+
+ 
+      <button type="submit" class="register-button">Crear Cuenta</button>
+    </form>
+
+ 
+    <div class="login-link">
+      <p>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí</a></p>
+    </div>
+  </div>
+</div>

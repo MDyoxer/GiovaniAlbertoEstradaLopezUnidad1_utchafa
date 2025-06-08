@@ -1,0 +1,45 @@
+<app-nav></app-nav>
+<div class="form-container">
+  <h2>Registrar Nueva Tarea</h2>
+  <form   class="task-form">
+    <div class="form-group">
+      <label for="name">Nombre de la Tarea</label>
+      <input 
+        type="text" 
+        id="nombre" 
+        formControlName="nombre" 
+        name="nombre"
+        placeholder="Ej: Proyecto final"
+        class="form-input"
+      >
+
+    </div>
+
+    <div class="form-group">
+       <label for="materia">Materia</label>
+      <input 
+        type="text" 
+        id="materia" 
+        formControlName="materia" 
+        name="materia"
+        placeholder="Ej: Programación"
+        class="form-input"
+      >
+  
+    </div>
+
+    <div class="form-group">
+      <label for="dueDate">Fecha Límite</label>
+      <input 
+      name="fecha_limite"
+        type="date" 
+        id="fecha_limite" 
+        formControlName="fecha_limite" 
+        class="form-input"
+      >
+
+    </div>
+
+    <button type="submit"  class="submit-btn"></button>
+  </form>
+</div>

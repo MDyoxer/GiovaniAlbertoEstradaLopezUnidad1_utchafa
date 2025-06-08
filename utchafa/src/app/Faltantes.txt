@@ -1,0 +1,10 @@
+Login 👍
+Registro👍
+Recuperar pass
+add tarea
+delete tarea
+edit tarea
+tareas
+buscar
+nav
+chat

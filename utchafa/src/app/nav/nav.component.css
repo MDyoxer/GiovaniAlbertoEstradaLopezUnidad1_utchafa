@@ -1,0 +1,95 @@
+/* Fondo de la sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(145deg, #34495e, #2c3e50);
+  color: #ecf0f1;
+  padding: 30px 20px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Título */
+.sidebar h2 {
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #1abc9c;
+  letter-spacing: 1px;
+}
+
+/* Lista de navegación */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.nav-links li {
+  margin-bottom: 20px;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 17px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+
+.nav-links a:hover {
+  background: #1abc9c;
+  color: #fff;
+  transform: translateX(5px);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Íconos (emojis) */
+.nav-links span {
+  font-size: 20px;
+}
+
+/* Botón de salir diferenciado */
+.nav-links li:last-child a {
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.nav-links li:last-child a:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+/* Responsive opcional (oculta en móvil si quieres) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links li {
+    margin: 10px;
+  }
+}
