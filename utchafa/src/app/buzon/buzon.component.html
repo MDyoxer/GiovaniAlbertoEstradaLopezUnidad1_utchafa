@@ -1,0 +1,41 @@
+<app-nav></app-nav>
+<div class="buzon-container">
+  <div class="buzon-header">
+    <h1>📪 Buzón de Mensajes</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar mensajes...">
+      <button class="btn-new">+ Nuevo Mensaje</button>
+    </div>
+  </div>
+
+  <div class="buzon-content">
+    <!-- Filtros -->
+    <div class="filters">
+      <button class="filter-btn active">Todos</button>
+      <button class="filter-btn">No leídos</button>
+      <button class="filter-btn">Importantes</button>
+    </div>
+
+    <!-- Lista de mensajes -->
+    <div class="messages-list">
+      <div 
+        class="message-card" 
+        [ngClass]="{'unread': message.unread}" 
+        *ngFor="let message of messages"
+      >
+        <div class="message-icon">
+          {{ getIcon(message.sender) }}
+        </div>
+        <div class="message-content">
+          <h3>{{ message.sender }}</h3>
+          <p class="subject">{{ message.subject }}</p>
+          <p class="preview">{{ message.preview }}</p>
+        </div>
+        <div class="message-meta">
+          <span class="time">{{ message.time }}</span>
+          <button class="btn-star">{{ message.important ? '★' : '☆' }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

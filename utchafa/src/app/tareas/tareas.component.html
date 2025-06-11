@@ -1,7 +1,55 @@
-<app-nav/>
+<app-nav></app-nav>
+
 <div class="back">
-   <h1 class="titulo-bonito">
-      <span class="titulo-texto">Bienvenido {{ usuarioActual }}</span>
-      <span class="titulo-subrayado"></span>
-    </h1>
+  <h1 class="titulo-bonito">
+    <span class="titulo-texto">Bienvenido {{ usuarioActual }}</span>
+    <span class="titulo-subrayado"></span>
+  </h1>
+</div>
+
+<div class="tareas-container">
+  <div class="filtros-container">
+<input type="text" [(ngModel)]="busqueda" placeholder="Buscar la tarea..." class="buscar-input">
+    <div class="filtros-group">
+      <select class="filtro-select">
+        <option value="">Todas las materias</option>
+        <option *ngFor="let materia of materiasUnicas" [value]="materia">{{ materia }}</option>
+      </select>
+      <select class="filtro-select">
+        <option value="">Todas las fechas</option>
+        <option value="proximas">Próximas primero</option>
+        <option value="lejanas">Lejanas primero</option>
+      </select>
+    </div>
   </div>
+
+  <!-- Cards de tareas -->
+  <div class="tareas-grid">
+<div *ngFor="let tarea of tareasFiltradas" class="tarea-card" [class.urgente]="esUrgente(tarea.fecha_limite)">
+      <div class="card-header">
+        <h3 class="tarea-nombre">{{ tarea.nombre }}</h3>
+        <span class="tarea-materia">{{ tarea.materia }}</span>
+      </div>
+      
+      <div class="card-body">
+        <div class="tarea-fecha">
+          <span class="fecha-label">Inicio:</span>
+          <span class="fecha-valor">{{ tarea.fecha_inicio | date:'mediumDate' }}</span>
+        </div>
+        <div class="tarea-fecha">
+          <span class="fecha-label">Límite:</span>
+          <span class="fecha-valor">{{ tarea.fecha_limite | date:'mediumDate' }}</span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <div class="dias-restantes">
+          {{ calcularDiasRestantes(tarea.fecha_limite) }} días restantes
+        </div>
+        <div class="acciones">
+          <button class="btn-eliminar" (click)="eliminarTareas(tarea.id)">🗑️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

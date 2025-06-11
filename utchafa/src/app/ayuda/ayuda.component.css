@@ -1,0 +1,46 @@
+.ayuda-container {
+  max-width: 800px;
+  margin-left: 700px;
+  margin: 2rem auto;
+  background: #fefefe;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #0a66c2;
+  margin-bottom: 2rem;
+}
+
+.ayuda-seccion {
+      margin-left: 50px;
+  margin-bottom: 1.5rem;
+  background: #f4f9ff;
+  border-left: 5px solid #0a66c2;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.ayuda-seccion h2 {
+  margin-top: 0;
+  color: #0a3e80;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+.ayuda-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-style: italic;
+  color: #777;
+}

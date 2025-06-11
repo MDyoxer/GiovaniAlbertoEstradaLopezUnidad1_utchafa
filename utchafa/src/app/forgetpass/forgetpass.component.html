@@ -1,0 +1,32 @@
+<div class="forgot-password-container">
+  <div class="card">
+    <h2>¿Olvidaste tu contraseña?</h2>
+    <p>Ingresa tu correo electrónico y te enviaremos tu contraseña.</p>
+    
+    <form [formGroup]="forgotForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input 
+          type="email" 
+          id="email" 
+          formControlName="email" 
+          placeholder="tu@correo.com"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        >
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">El correo es requerido</div>
+          <div *ngIf="f['email'].errors['email']">Ingresa un correo válido</div>
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" [disabled]="loading">
+        <span *ngIf="!loading">Enviar contraseña</span>
+        <span *ngIf="loading">Enviando...</span>
+      </button>
+      
+      <div *ngIf="message" class="alert" [ngClass]="success ? 'alert-success' : 'alert-danger'">
+        {{ message }}
+      </div>
+    </form>
+  </div>
+</div>

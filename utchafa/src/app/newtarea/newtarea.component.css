@@ -73,10 +73,10 @@ select.form-input {
 
 .submit-btn {
   padding: 0.8rem;
-  border: none;
+  border: black;
   border-radius: 8px;
-  background-color: var(--primary-color);
-  color: rgb(0, 0, 0);
+  background-color: green;
+  color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -85,12 +85,12 @@ select.form-input {
 }
 
 .submit-btn:hover {
-  background-color: var(--secondary-color);
+  background-color:black;
   transform: translateY(-2px);
 }
 
 .submit-btn:disabled {
-  background-color: #adb5bd;
+  background-color: #075eb5;
   cursor: not-allowed;
   transform: none;
 }

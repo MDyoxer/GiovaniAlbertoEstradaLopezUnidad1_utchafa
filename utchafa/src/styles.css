@@ -2,3 +2,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Fondo con degradado suave */
+body {
+  background: linear-gradient(135deg, #e0f7fa, #c5f8ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  min-height: 100vh;
+  color: #333;
+}

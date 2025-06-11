@@ -1,10 +1,14 @@
-Login 👍
-Registro👍
-Recuperar pass
-add tarea
-delete tarea
-edit tarea
-tareas
-buscar
-nav
-chat
+Login 👍👍
+Registro👍👍
+nav👍👍
+add tarea👍👍
+delete tarea👍👍
+tareas👍👍
+contactanos👍👍
+pagina de error👍👍
+ayuda👍👍
+buscar👍👍
+chat👍👍
+buzon👍👍
+Recuperar pass👍👍
+mapa del sitio👍👍

@@ -1,0 +1,16 @@
+<app-nav/>
+
+<div class="chat-container">
+  <div class="chat-mensajes">
+    <div *ngFor="let mensaje of mensajes" [ngClass]="mensaje.tipo">
+      {{ mensaje.texto }}
+    </div>
+  </div>
+
+  <div class="chat-opciones" *ngIf="mostrarOpciones">
+    <button (click)="enviarMensaje('¿Para qué sirve esto?')">¿Para qué sirve esto?</button>
+    <button (click)="enviarMensaje('¿Cómo agrego una tarea?')">¿Cómo agrego una tarea?</button>
+    <button (click)="enviarMensaje('¿Cómo busco una tarea?')">¿Cómo busco una tarea?</button>
+    <button (click)="enviarMensaje('¿Cómo elimino una tarea?')">¿Cómo elimino una tarea?</button>
+  </div>
+</div>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';  
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // 👈 Asegúrate de importar esto
+import { FormsModule } from '@angular/forms'; 
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,7 +11,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']  
 })
 export class RegisterComponent {
   nombre = '';
@@ -21,6 +22,25 @@ export class RegisterComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   onRegister() {
+    // Validar campos vacíos
+    if (!this.nombre || !this.email || !this.contra || !this.contra2) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Datos incompletos',
+        text: 'Por favor llena todos los campos.',
+      });
+      return;
+    }
+
+    if (this.contra !== this.contra2) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Contraseñas incorrectas',
+        text: 'Las contraseñas no coinciden. Intenta de nuevo.',
+      });
+      return;
+    }
+
     const payload = {
       nombre: this.nombre,
       email: this.email,
@@ -31,12 +51,21 @@ export class RegisterComponent {
     this.http.post('http://localhost/api-utchafa/auth/register.php', payload)
       .subscribe({
         next: (res: any) => {
-          console.log('Usuario registrado:', res);
-          this.router.navigate(['/login']);
+          Swal.fire({
+            icon: 'success',
+            title: 'Usuario creado correctamente',
+            showConfirmButton: false,
+            timer: 1200
+          }).then(() => {
+            this.router.navigate(['/login']);
+          });
         },
         error: (err) => {
-          console.error('Error al registrar:', err);
-          alert(err.error.message || 'Error al registrar');
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al registrar',
+            text: err.error.message || 'Ocurrió un error al registrar el usuario.',
+          });
         }
       });
   }

@@ -1,27 +1,32 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
-import { NavComponent } from "../nav/nav.component"; 
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { NavComponent } from "../nav/nav.component";
+
 @Component({
   selector: 'app-newtarea',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, NavComponent,FormsModule,HttpClientModule], 
+  imports: [ReactiveFormsModule, CommonModule, NavComponent], 
   templateUrl: './newtarea.component.html',
   styleUrl: './newtarea.component.css'
 })
 export class NewtareaComponent {
- 
-  newTarea = {nombre: '', materia = '', fecha_limite = '' };
+  tareaForm: FormGroup;
   
-  constructor(private http:HttpClient){}
+  constructor(private http: HttpClient, private fb: FormBuilder) {
+    this.tareaForm = this.fb.group({
+      nombre: ['', Validators.required],
+      materia: ['', Validators.required],
+      fecha_limite: ['', Validators.required]
+    });
+  }
 
-  //verificar datos
-  newTarea(){
-    if(!this.newTarea.nombre || !this.newTarea.materia || !this.newTarea.fecha_limite){
-       Swal.fire({
+  addTarea() {
+    if (this.tareaForm.invalid) {
+      Swal.fire({
         icon: 'warning',
         title: 'Campos incompletos',
         text: 'Por favor, complete todos los campos antes de guardar.',
@@ -29,17 +34,29 @@ export class NewtareaComponent {
       });
       return;
     }
-    const body = {
-      nombre: this.newTarea.nombre,
-      materia: this.newTarea.materia,
-      fecha_limite: this.newTarea.fecha_limite
-    };
-    //cabezeras
-    const headers = new HttpHeaders().set('Content-Type','application/json');
-    this.http.post('http://localhost/api-utchafa/tareas/new_tarea.php',body,{headers})
-    .subscribe({
-      
-    })
+
+    const body = this.tareaForm.value;
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    
+    this.http.post('http://localhost/api-utchafa/tareas/new_tarea.php', body, { headers })
+      .subscribe({
+        next: (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Tarea agregada',
+            text: 'La tarea se ha registrado correctamente',
+            confirmButtonText: 'OK'
+          });
+          this.tareaForm.reset();
+        },
+        error: (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un problema al agregar la tarea',
+            confirmButtonText: 'OK'
+          });
+        }
+      });
   }
-  
 }

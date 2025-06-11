@@ -1,0 +1,78 @@
+/* Estilo moderno y centrado */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: 2rem;
+  margin-left: 200px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.error-content {
+  max-width: 500px;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.error-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  color: #2d3436;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #636e72;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #0984e3, #6c5ce7);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.home-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(108, 92, 231, 0.2);
+}
+
+/* Efecto al hacer clic */
+.home-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .error-content {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.error-image {
+  width: 50%;
+  max-width: 300px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 3px solid #ffd166; /* Borde amarillo divertido */
+}
