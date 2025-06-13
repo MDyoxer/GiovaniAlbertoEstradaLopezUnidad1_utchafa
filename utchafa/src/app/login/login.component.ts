@@ -3,12 +3,13 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
+import { RecaptchaModule } from 'ng-recaptcha';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, FormsModule, CommonModule],
+  imports: [RouterLink, FormsModule, CommonModule,RecaptchaModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
