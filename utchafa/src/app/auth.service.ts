@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -33,23 +33,18 @@ export class AuthService {
           throw new Error(response?.message || 'Credenciales incorrectas');
         }
       }),
-      catchError(error => {
-        let errorMessage = 'Error desconocido';
-        
-        if (error.status === 0) {
-          errorMessage = 'Error de conexión con el servidor';
-        } else if (error.status === 401) {
-          errorMessage = 'Credenciales inválidas';
-        } else if (error.error && error.error.message) {
-          errorMessage = error.error.message;
-        } else if (error.message) {
-          errorMessage = error.message;
-        }
-        
-        return throwError(() => new Error(errorMessage));
-      })
+   catchError((error: HttpErrorResponse) => {
+            // Pasar el error completo con su respuesta
+            return throwError(() => ({
+                status: error.status,
+                error: error.error, // Esto contiene la respuesta JSON del servidor
+                message: error.message
+            }));
+        })
     );
-  }
+}
+
+  
 
   logout(): void {
     localStorage.removeItem('currentUser');
