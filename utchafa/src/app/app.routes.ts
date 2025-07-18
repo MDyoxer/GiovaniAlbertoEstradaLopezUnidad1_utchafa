@@ -25,7 +25,8 @@ export const routes: Routes = [
     {path: 'buzon', component: BuzonComponent},
     {path: 'forget', component: ForgetpassComponent},
     {path:'mapa', component:MapaComponent},
-    {path: '', redirectTo:'/login',pathMatch:'full'}
+    {path: '', redirectTo:'/login',pathMatch:'full'},
+    { path: '**', component: Error404Component }  
     
 
 ];
