@@ -11,22 +11,23 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import { BuzonComponent } from './buzon/buzon.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
 import { MapaComponent } from './mapa/mapa.component';
+// Importa el AuthGuard
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
-    {path: 'tareas', component: TareasComponent},
-    {path: 'restore', component: RestorepassComponent},
-    {path: 'newtarea', component:  NewtareaComponent},
-    {path: 'contact', component: ContactComponent},
-    {path: 'error', component: Error404Component},
-    {path: 'ayuda', component: AyudaComponent},
-    {path: 'chat', component: ChatbotComponent},
-    {path: 'buzon', component: BuzonComponent},
-    {path: 'forget', component: ForgetpassComponent},
-    {path:'mapa', component:MapaComponent},
-    {path: '', redirectTo:'/login',pathMatch:'full'},
-    { path: '**', component: Error404Component }  
-    
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'tareas', component: TareasComponent, canActivate: [AuthGuard] },
+    { path: 'restore', component: RestorepassComponent },
+    { path: 'newtarea', component: NewtareaComponent, canActivate: [AuthGuard] },
+    { path: 'contact', component: ContactComponent },
+    { path: 'error', component: Error404Component },
+    { path: 'ayuda', component: AyudaComponent, canActivate: [AuthGuard] },
+    { path: 'chat', component: ChatbotComponent, canActivate: [AuthGuard] },
+    { path: 'buzon', component: BuzonComponent, canActivate: [AuthGuard] },
+    { path: 'forget', component: ForgetpassComponent },
+    { path: 'mapa', component: MapaComponent, canActivate: [AuthGuard] },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', component: Error404Component }
 
 ];

@@ -48,7 +48,7 @@ export class RegisterComponent {
       contra2: this.contra2
     };
 
-    this.http.post('http://localhost/api-utchafa/auth/register.php', payload)
+    this.http.post('https://backendutchafa.shop/api-utchafa/auth/register.php', payload)
       .subscribe({
         next: (res: any) => {
           Swal.fire({

@@ -31,7 +31,7 @@ export class TareasComponent implements OnInit {
   }
 
   fetchTareas() {
-    this.http.get<any[]>('http://localhost/api-utchafa/tareas/all_tareas.php')
+this.http.get<any[]>('https://backendutchafa.shop/api-utchafa/tareas/all_tareas.php')
       .subscribe({
         next: (data) => {
           this.Tareas = data;
@@ -56,7 +56,7 @@ export class TareasComponent implements OnInit {
 
   //eliminar tareas
   eliminarTareas(id:number){
-    this.http.delete(`http://localhost/api-utchafa/tareas/delete_tarea.php?id=${id}`, { responseType: 'json' })
+this.http.delete(`https://backendutchafa.shop/api-utchafa/tareas/delete_tarea.php?id=${id}`, { responseType: 'json' })
     .subscribe({
    next: (response) => {
           Swal.fire({

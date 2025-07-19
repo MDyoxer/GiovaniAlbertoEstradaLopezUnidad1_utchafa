@@ -38,7 +38,7 @@ export class NewtareaComponent {
     const body = this.tareaForm.value;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     
-    this.http.post('http://localhost/api-utchafa/tareas/new_tarea.php', body, { headers })
+this.http.post('https://backendutchafa.shop/api-utchafa/tareas/new_tarea.php', body, { headers })
       .subscribe({
         next: (response) => {
           Swal.fire({

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost/api-utchafa/auth/';
+  private apiUrl = 'https://backendutchafa.shop/api-utchafa/auth/';
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
